@@ -6,3 +6,4 @@ Console.WriteLine("==========User Registration==========");
 Registration form = new Registration();
 
 form.GetInfo();
+Console.ReadLine();
