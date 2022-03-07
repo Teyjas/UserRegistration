@@ -11,6 +11,7 @@ internal class Registration
     private const string namePattern = @"^[A-Z][a-zA-Z]{2,}$";
     private const string emailPattern = @"^[A-Za-z0-9]{3,}([.][A-Za-z0-9]{3,})?[@][a-zA-Z]{2,}[.][a-zA-Z]{2,}([.][a-zA-Z]{2})?$";
     const string mobilePattern = @"^[0-9]{2}[ ][0-9]{10}$";
+    const string passwordPattern = @"^[\w\S]{8,}$";
 
 
     // Registration details of user
@@ -18,7 +19,7 @@ internal class Registration
     private string lastName;
     private string email;
     private string mobile;
-
+    private string password;
     /// <summary>
     /// Gets the information from user.
     /// </summary>
@@ -28,6 +29,7 @@ internal class Registration
         lastName = GetValidInfo("Last Name: ", namePattern);
         email = GetValidInfo("Email: ", emailPattern);
         mobile = GetValidInfo("Mobile: ", mobilePattern);
+        password = GetValidInfo("Password: ", passwordPattern);
     }
 
     /// <summary>
