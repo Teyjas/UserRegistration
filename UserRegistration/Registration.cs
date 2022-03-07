@@ -5,14 +5,13 @@ namespace UserRegistration;
 /// <summary>
 /// Takes details from user for registration form purposes
 /// </summary>
-internal class Registration
+public class Registration
 {
     // RegEx patterns for various types of information
-    private const string namePattern = @"^[A-Z][a-zA-Z]{2,}$";
-    private const string emailPattern = @"^[A-Za-z0-9]{3,}([.][A-Za-z0-9]{3,})?[@][a-zA-Z]{2,}[.][a-zA-Z]{2,}([.][a-zA-Z]{2})?$";
+    const string namePattern = @"^[A-Z][a-zA-Z]{2,}$";
+    const string emailPattern = @"^[A-Za-z0-9]{3,}([\.\-\+][A-Za-z0-9]{3,})?[@][a-zA-Z0-9]{1,}[.][a-zA-Z]{2,}([.][a-zA-Z]{2,})?$";
     const string mobilePattern = @"^[0-9]{2}[ ][0-9]{10}$";
     const string passwordPattern = @"^(?!.*[!@#&()–\[{}\]:;',?/*~$^+=<>].*[!@#&()–\[{}\]:;',?/*~$^+=<>])(?=.*[A-Z])(?=.*[0-9]).{8,}$";
-
 
     // Registration details of user
     private string firstName;
@@ -20,6 +19,7 @@ internal class Registration
     private string email;
     private string mobile;
     private string password;
+
     /// <summary>
     /// Gets the information from user.
     /// </summary>
@@ -47,7 +47,7 @@ internal class Registration
             if (IsValid(info, pattern))
                 return info;
             else
-                Console.WriteLine("Invalid! (First letter caps, Min 3 characters)");
+                Console.WriteLine("Invalid!");
         } while (true);
     }
 
@@ -57,7 +57,7 @@ internal class Registration
     /// <returns>
     ///   <c>true</c> if the specified name is valid; otherwise, <c>false</c>.
     /// </returns>
-    private static bool IsValid(string info, string pattern)
+    public static bool IsValid(string info, string pattern)
     {
         return Regex.IsMatch(info, pattern);
     }
