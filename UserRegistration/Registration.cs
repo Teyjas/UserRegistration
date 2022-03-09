@@ -13,7 +13,6 @@ public class Registration
     public const string MOBILE_PATTERN = @"^[0-9]{2}[ ][0-9]{10}$";
     public const string PASSWORD_PATTERN = @"^(?!.*[!@#&()–\[{}\]:;',?/*~$^+=<>].*[!@#&()–\[{}\]:;',?/*~$^+=<>])(?=.*[A-Z])(?=.*[0-9]).{8,}$";
 
-
     // Registration details of user
     private string firstName;
     private string lastName;
