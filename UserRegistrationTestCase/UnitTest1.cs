@@ -6,6 +6,8 @@ namespace RegistrationUnitTesting
     [TestClass]
     public class EmailValidityTests
     {
+        const string emailPattern = @"^[A-Za-z0-9]{3,}([\.\-\+][A-Za-z0-9]{3,})?[@][a-zA-Z0-9]{1,}[.][a-zA-Z]{2,}([.][a-zA-Z]{2,3})?$";
+
         /// <summary>
         /// Tests the valid emails
         /// </summary>
@@ -21,7 +23,7 @@ namespace RegistrationUnitTesting
         [DataRow(@"abc+100@gmail.com")]
         public void TestValidEmails(string email)
         {
-            var result = Registration.IsValid(email, Registration.EMAIL_PATTERN);
+            var result = Registration.IsValid(email, emailPattern);
             Assert.IsTrue(result);
         }
 
@@ -44,7 +46,7 @@ namespace RegistrationUnitTesting
         [DataRow(@"abc@gmail.com.aa.au")]
         public void TestInvalidEmails(string email)
         {
-            var result = Registration.IsValid(email, Registration.EMAIL_PATTERN);
+            var result = Registration.IsValid(email, emailPattern);
             Assert.IsFalse(result);
         }
     }
